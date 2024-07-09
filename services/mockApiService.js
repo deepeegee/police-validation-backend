@@ -16,8 +16,11 @@ class MockApiService {
   }
 
   async validateOfficer(badgeNumber) {
+    console.log('Validating officer with badge number:', badgeNumber);
     const officers = await this.fetchOfficers();
-    return officers.find(officer => officer.badgeNumber.toString() === badgeNumber);
+    const officer = officers.find(officer => officer.badgeNumber.toString() === badgeNumber);
+    console.log('Officer found:', officer);
+    return officer;
   }
 }
 
